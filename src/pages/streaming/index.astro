@@ -1,8 +1,8 @@
 ---
 import { getCollection, render } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
-import NoteCard from '../../components/NoteCard.astro';
-import { SITE_TITLE } from '../../consts';
+import Layout from '@/layouts/Layout.astro';
+import NoteCard from '@/components/NoteCard.astro';
+import { SITE_TITLE } from '@/consts';
 
 const posts = (await getCollection('streaming')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
