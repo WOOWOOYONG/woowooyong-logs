@@ -8,8 +8,6 @@
   "scripts": {
     "dev": "astro dev",
     "check": "astro check",
-    "sync:logs": "bash scripts/sync-logs.sh",
-    "prebuild": "pnpm sync:logs",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
@@ -19,14 +17,9 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "^13.3.0",
-    "@astrojs/react": "^5.0.4",
-    "@keystatic/astro": "^5.0.6",
-    "@keystatic/core": "^0.5.50",
     "@tailwindcss/vite": "^4.2.4",
     "astro": "^6.1.8",
     "astro-icon": "^1.1.5",
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5",
     "sharp": "^0.34.5",
     "tailwindcss": "^4.2.4",
     "zod": "^4.3.6"
@@ -36,8 +29,6 @@
     "@eslint/js": "^10.0.1",
     "@iconify-json/lucide": "^1.2.105",
     "@types/node": "^25.6.0",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
     "astro-eslint-parser": "^1.4.0",
     "eslint": "^10.3.0",
     "eslint-config-prettier": "^10.1.8",

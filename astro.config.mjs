@@ -3,8 +3,6 @@ import { defineConfig } from 'astro/config'
 
 import tailwindcss from '@tailwindcss/vite'
 import icon from 'astro-icon'
-import react from '@astrojs/react'
-import keystatic from '@keystatic/astro'
 import cloudflare from '@astrojs/cloudflare'
 
 const isBuild = process.argv.includes('build')
@@ -29,7 +27,9 @@ function normalizeSite(value) {
 const site = normalizeSite(rawSite)
 
 if (isBuild && !site) {
-  throw new Error('Missing SITE_URL. Set SITE_URL to the deployed site URL before running astro build.')
+  throw new Error(
+    'Missing SITE_URL. Set SITE_URL to the deployed site URL before running astro build.',
+  )
 }
 
 // https://astro.build/config
@@ -37,7 +37,7 @@ export default defineConfig({
   site,
   output: 'static',
   ...(isBuild ? { adapter: cloudflare() } : {}),
-  integrations: [icon(), react(), keystatic()],
+  integrations: [icon()],
   vite: {
     plugins: [tailwindcss()],
   },

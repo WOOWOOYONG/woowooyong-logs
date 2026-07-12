@@ -1,46 +1,44 @@
-# Astro Starter Kit: Basics
+# My Dev Site
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+Personal notes, projects, and short-form logs built with Astro 6, Tailwind CSS,
+and TypeScript, then deployed as a static site on Cloudflare.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Content
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+All content lives in this repository:
 
 ```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+src/content/
+├── notes/       # Long-form articles
+├── projects/    # Portfolio entries
+└── logs/        # Short-form logs
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+To publish a log, add a Markdown file to `src/content/logs/` using the existing
+frontmatter format, preview it locally, then commit and push the change. The
+deployment rebuilds the site from the content in the same Git commit.
 
-## 🧞 Commands
+```md
+---
+pubDate: 2026-07-12T21:30:00+08:00
+tags:
+  - astro
+---
 
-All commands are run from the root of the project, from a terminal:
+Log content goes here.
+```
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `pnpm install`         | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+## Commands
 
-## 👀 Want to learn more?
+| Command             | Action                                           |
+| :------------------ | :----------------------------------------------- |
+| `pnpm install`      | Install dependencies                             |
+| `pnpm dev`          | Start the development server at `localhost:4321` |
+| `pnpm check`        | Run Astro and TypeScript checks                  |
+| `pnpm lint`         | Run ESLint                                       |
+| `pnpm format:check` | Check formatting                                 |
+| `pnpm build`        | Check and build the production site to `dist/`   |
+| `pnpm preview`      | Preview the production build                     |
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Production builds require `SITE_URL` or `CF_PAGES_URL` to contain the deployed
+site URL.
