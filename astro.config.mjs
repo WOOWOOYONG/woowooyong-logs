@@ -36,7 +36,7 @@ if (isBuild && !site) {
 export default defineConfig({
   site,
   output: 'static',
-  ...(isBuild ? { adapter: cloudflare() } : {}),
+  ...(isBuild ? { adapter: cloudflare({ imageService: 'compile' }) } : {}),
   integrations: [icon()],
   vite: {
     plugins: [tailwindcss()],
