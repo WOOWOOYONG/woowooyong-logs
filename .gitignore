@@ -25,6 +25,3 @@ pnpm-debug.log*
 
 # cloudflare / miniflare local state
 .wrangler/
-
-# logs content is sourced from WOOWOOYONG/woowooyong-streaming at build time
-src/content/logs/

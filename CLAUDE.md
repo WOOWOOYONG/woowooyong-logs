@@ -13,11 +13,18 @@ pnpm check      # Astro type checking only
 
 No test framework is configured.
 
+## Content Workflow
+
+All site content is stored in this repository under `src/content/`. To publish a
+log, add a Markdown file to `src/content/logs/`, then commit and push it with the
+site. Production builds do not fetch content from external repositories.
+
 ## Architecture
 
 Astro 6 static site with Tailwind CSS v4 (via `@tailwindcss/vite`) and TypeScript. Uses pnpm. Path alias `@/*` maps to `./src/*`.
 
 **Content collections** (`src/content.config.ts`) define three Zod-validated collections loaded via glob:
+
 - `notes` — full articles with `title`, `description?`, `pubDate`, `tags[]`, `draft`
 - `projects` — portfolio entries; add `cover` (image), `link?`, `repo?`
 - `logs` — short-form with only `pubDate` and `tags[]`
@@ -25,6 +32,7 @@ Astro 6 static site with Tailwind CSS v4 (via `@tailwindcss/vite`) and TypeScrip
 Draft filtering: `import.meta.env.PROD` gates `draft: true` entries out of production builds.
 
 **Routing** (`src/pages/`) mirrors collections:
+
 - `/notes` — listing + `/notes/page/[page]` (6 per page, set in `src/consts.ts`)
 - `/notes/category/[category]` + `/notes/category/[category]/page/[page]` — category filter
 - `/notes/[...slug]` — article detail using `PostLayout` (with `TableOfContents`)
@@ -39,6 +47,7 @@ Draft filtering: `import.meta.env.PROD` gates `draft: true` entries out of produ
 ## Coding Conventions
 
 **Parameter naming**: Never use single-letter or cryptic parameter names (e.g. `n`, `c`, `p`, `t`, `l`, `h`, `i`). Use descriptive names that reflect the value's type or role:
+
 - Collection items: `note`, `project`, `post`, `tag`, `category`, `heading`, `link`, `anchor`
 - Pagination paths: `path` (not `p`)
 - Page numbers: `pageNum` (not `n`)
